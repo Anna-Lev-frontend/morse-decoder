@@ -44,16 +44,18 @@ function decode(expr) {
             arr.push(expr.slice(i - 10, i))
         }
     }
-    console.log(arr)
+    
     const decodeStr = arr.map((item) => {
         if (item.includes('*')) {
             return ' ';
         }
         let str = '';
-        for (let i = 0; i < item.length+1; i++) {
-            if (!(i % 2) && i !== 0) {
+        for (let i = 0; i < item.length; i++) {
+            if (!(i % 2)) {
+                
                 if (item[i] + item[i+1] === '10') {
                     str = str + '.';
+                   
                 }
 
                 else if (item[i] + item[i+1] === '11') {
@@ -68,6 +70,7 @@ function decode(expr) {
     }).join('');
     return decodeStr;
 }
+console.log(decode('000000001000001110101010101111'))
 
 
 module.exports = {
